@@ -117,7 +117,8 @@ napi_value draw_rgb(napi_env env, napi_callback_info info) {
     napi_throw_error(env, NULL, "data_src_len != 3*set_size_x*set_size_y");
     return ret_dummy;
   }
-  
+  glRasterPos2i(-1, 1);
+  glPixelZoom(1, -1);
   glClear(GL_COLOR_BUFFER_BIT);
   
   glDrawPixels(set_size_x, set_size_y, px_format, GL_UNSIGNED_BYTE, data_src);
